@@ -167,6 +167,41 @@
       color: #60a5fa; /* light blue on hover */
     }
 
+    /* CSS fixing for Internship & Education */
+    .timeline {
+      border-left: 3px solid #111827;
+      padding-left: 20px;
+      margin: 0;
+      list-style: none; /* Just in case */
+    }
+
+    .timeline-item {
+      margin: 0 0 20px 0;
+      position: relative;
+    }
+
+    .timeline-item h3,
+    .timeline-item p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 8px; /* adjust to align with text */
+      width: 12px;
+      height: 12px;
+      background: #111827;
+      border-radius: 50%;
+    }
+
+    body.dark .timeline { border-color: #f9fafb; }
+    body.dark .timeline-item::before { background: #f9fafb; }
+
+
+
 
     .typing { font-weight: 700; font-size: 1.2rem; border-right: 3px solid; white-space: nowrap; overflow: hidden; width: 0; animation: typing 3s steps(30, end) forwards, blink 0.7s infinite; }
     @keyframes typing { from { width: 0 } to { width: 100% } }
@@ -181,7 +216,7 @@
 
     .timeline { border-left: 3px solid #111827; padding-left: 20px; }
     .timeline-item { margin-bottom: 20px; position: relative; }
-    .timeline-item::before { content: ""; position: absolute; left: -10px; top: 5px; width: 12px; height: 12px; background: #111827; border-radius: 50%; }
+    .timeline-item::before { content: ""; position: absolute; left: -15px; top: 5px; width: 12px; height: 12px; background: #111827; border-radius: 50%; }
     body.dark .timeline { border-color: #f9fafb; }
     body.dark .timeline-item::before { background: #f9fafb; }
 
@@ -254,8 +289,8 @@
     <section id="internships">
       <h2>Internships</h2>
       <div class="timeline">
-        <div class="timeline-item"><h3>Web Dev Intern - ABC Tech</h3><p>2023 - Worked on responsive redesign using HTML, CSS, JS.</p></div>
-        <div class="timeline-item"><h3>Frontend Intern - XYZ Solutions</h3><p>2022 - Built dashboards with React.js & REST APIs.</p></div>
+        <div class="timeline-item"><h3> Web Dev Intern - ABC Tech</h3><p>2023 - Worked on responsive redesign using HTML, CSS, JS.</p></div>
+        <div class="timeline-item"><h3> Frontend Intern - XYZ Solutions</h3><p>2022 - Built dashboards with React.js & REST APIs.</p></div>
       </div>
     </section>
 
@@ -263,8 +298,10 @@
     <section id="education">
       <h2>Education</h2>
       <div class="timeline">
-        <div class="timeline-item"><h3>B.Tech - Computer Science</h3><p>ABC University (2020-2024) — CGPA: 8.5</p></div>
-        <div class="timeline-item"><h3>Higher Secondary</h3><p>XYZ School (2018-2020) — 90%</p></div>
+        <div class="timeline-item"><h3>MCA - Master of Computer Application (Management)</h3><p>College : Sinhgad Technical Education Society's Sinhgad Institute of Management, Pune-411041</p><p>University : Savitribai Phule Pune University (2024-2026) — Pursuing </p></div>
+        <div class="timeline-item"><h3>BCA - Bachelor of Computer Application (Science)</h3><p>College : Maharashtra Education Society's Abasaheb Garware College of Arts and Science (Autonomous), Pune - 411004 </p><p>University : Savitribai Phule Pune University (2021-2024) — <b>CGPA : 8.25</b></p></div>
+        <div class="timeline-item"><h3>12th - HSC (Science)</h3><p>College : Maharashtra Education Society's Abasaheb Garware College of Arts and Science (Autonomous), Pune - 411004 (2020-2021) — <b>85.17%</b></p></div>
+        <div class="timeline-item"><h3>10th - SSC </h3><p>School : Late Bandoji Khandoji Chavan Secondary and Higher Secondary School, Pune-411041 (2018-2019) — <b>85.80%</b></p></div>
       </div>
     </section>
 
@@ -300,9 +337,9 @@
     <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>Feel free to reach out via:</p>
-      <a href="mailto:youremail@example.com">📧 Email</a>
-      <a href="https://github.com/yourgithub" target="_blank">💻 GitHub</a>
-      <a href="https://linkedin.com/in/yourlinkedin" target="_blank">🔗 LinkedIn</a>
+      <a href="mailto:vanageshreyas15@gmail.com">📧 Email</a>
+      <a href="https://github.com/Shreyas-Vanage" target="_blank">💻 GitHub</a>
+      <a href="https://www.linkedin.com/in/vanage-shreyas" target="_blank">🔗 LinkedIn</a>
     </section>
   </main>
 
