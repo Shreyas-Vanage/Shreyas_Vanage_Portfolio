@@ -147,6 +147,27 @@
     }
     body.dark .profile-pic { border-color: #f9fafb; }
 
+    /* Default link color */
+    a {
+      color: #111827; /* dark text for light mode */
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #1d4ed8; /* blue on hover */
+    }
+
+    /* Dark mode links */
+    body.dark a {
+      color: #f9fafb; /* light text for dark mode */
+    }
+
+    body.dark a:hover {
+      color: #60a5fa; /* light blue on hover */
+    }
+
+
     .typing { font-weight: 700; font-size: 1.2rem; border-right: 3px solid; white-space: nowrap; overflow: hidden; width: 0; animation: typing 3s steps(30, end) forwards, blink 0.7s infinite; }
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink { 50% { border-color: transparent } }
@@ -178,8 +199,8 @@
   <header>
     <div>
       <h1>Shreyas Vanage</h1>
-      <p class="header-subtitle">Web Developer | Designer | Tech Enthusiast</p>
-      <p class="header-tagline">Turning ideas into interactive web experiences</p>
+      <p class="header-subtitle">Python Developer | Tech Enthusiast</p>
+      <p class="header-tagline">Turning Python code into efficient solutions</p>
     </div>
     <div>
       <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
@@ -203,8 +224,8 @@
     <section id="about" class="active">
       <center><img src="My_Pic.jpg" alt="Profile Photo" class="profile-pic"></center>
       <h2>About Me</h2>
-      <p class="typing">Hi, I'm Shreyas Vanage — Web Developer & Designer</p>
-      <p>I enjoy creating interactive and user-friendly web applications with modern technologies.</p>
+      <p class="typing">Hi, I'm Shreyas Vanage — Python Developer</p>
+      <p>I am a Python Developer passionate about building efficient, scalable, and data-driven applications. I specialize in backend development, automation, and data analysis using Python and its modern frameworks and libraries.</p>
       <a class="resume-btn" href="Shreyas_Vanage_cv_8698041257.pdf" download="Shreyas_Vanage_Resume.pdf">📄 Download Resume</a>
 
     </section>
@@ -212,18 +233,18 @@
     <!-- Skills -->
     <section id="skills">
       <h2>Skills</h2>
-      <div class="skill"><div class="skill-name">HTML & CSS</div><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
-      <div class="skill"><div class="skill-name">JavaScript</div><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
-      <div class="skill"><div class="skill-name">React.js</div><div class="bar"><div class="bar-fill" style="width:75%"></div></div></div>
-      <div class="skill"><div class="skill-name">Node.js</div><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
-      <div class="skill"><div class="skill-name">SQL & MongoDB</div><div class="bar"><div class="bar-fill" style="width:65%"></div></div></div>
+      <div class="skill"><div class="skill-name">Python</div><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
+      <div class="skill"><div class="skill-name">SQL & MongoDB</div><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
+      <div class="skill"><div class="skill-name">HTML & CSS</div><div class="bar"><div class="bar-fill" style="width:75%"></div></div></div>
+      <div class="skill"><div class="skill-name">Django framework</div><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
+      <div class="skill"><div class="skill-name">Cloud Computing</div><div class="bar"><div class="bar-fill" style="width:60%"></div></div></div>
     </section>
 
     <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="grid">
-        <div class="card"><h3>Portfolio Website</h3><p>Interactive personal website with animations.</p></div>
+        <div class="card"><h3><a href="" target="_blank">Portfolio Website</a></h3><p>Interactive personal website with animations.</p></div>
         <div class="card"><h3>Weather App</h3><p>React app fetching live weather data via API.</p></div>
         <div class="card"><h3>Task Manager</h3><p>To-do list app with local storage & CRUD operations.</p></div>
       </div>
