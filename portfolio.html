@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreyas Vanage | Web Developer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
+      color: #111827;
+      scroll-behavior: smooth;
+      transition: background 0.5s, color 0.5s;
+    }
+    body.dark {
+      background: linear-gradient(to bottom right, #1f2937, #111827);
+      color: #f9fafb;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .header-subtitle {
+      font-size:1.1rem; 
+      font-weight:500; 
+      margin:0;
+    }
+    .header-tagline {
+      font-size:0.95rem; 
+      color:gray; 
+      margin-top:5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+    }
+    nav button {
+      background: #e5e7eb;
+      border: none;
+      margin: 5px 0;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s, color 0.3s;
+      color: #111827;
+    }
+    nav button.active, nav button:hover {
+      background: #111827;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    body.dark nav button {
+      background: #374151; /* dark background for buttons */
+      color: #f9fafb;      /* light text */
+    }
+    body.dark nav button.active,
+    body.dark nav button:hover {
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      min-height: 400px;
+      transition: all 0.5s ease;
+    }
+    body.dark main {
+      background: #1f2937;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+    }
+
+    section { display: none; opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    section.active { display: block; opacity: 1; transform: translateY(0); }
+
+    ul { list-style: disc inside; padding-left: 10px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+    .card {
+      padding: 15px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.3s, background 0.5s, color 0.5s;
+      background: #fafafa;
+    }
+    .card:hover { transform: translateY(-5px) scale(1.02); }
+    body.dark .card { background: #374151; border-color: #4b5563; color: #f9fafb; }
+
+    .contact a {
+      display: inline-flex;
+      align-items: center;
+      margin: 8px 10px 8px 0;
+      text-decoration: none;
+      color: #111827;
+      font-weight: 600;
+      border: 1px solid #d1d5db;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .contact a:hover { background: #111827; color: white; transform: scale(1.05); }
+    body.dark .contact a { color: #f9fafb; border-color: #9ca3af; }
+    body.dark .contact a:hover { background: #f9fafb; color: #111827; }
+
+    .resume-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #111827;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .resume-btn:hover { background: #374151; transform: scale(1.05); }
+    body.dark .resume-btn { background: #f9fafb; color: #111827; }
+    body.dark .resume-btn:hover { background: #d1d5db; }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #111827;
+      margin-bottom: 20px;
+      display: block;
+    }
+    body.dark .profile-pic { border-color: #f9fafb; }
+
+    .typing { font-weight: 700; font-size: 1.2rem; border-right: 3px solid; white-space: nowrap; overflow: hidden; width: 0; animation: typing 3s steps(30, end) forwards, blink 0.7s infinite; }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
+
+    .skill { margin: 10px 0; }
+    .skill-name { margin-bottom: 5px; font-weight: 600; }
+    .bar { height: 10px; background: #d1d5db; border-radius: 6px; overflow: hidden; }
+    .bar-fill { height: 100%; background: #111827; width: 0; transition: width 2s; }
+    body.dark .bar { background: #4b5563; }
+    body.dark .bar-fill { background: #f9fafb; }
+
+    .timeline { border-left: 3px solid #111827; padding-left: 20px; }
+    .timeline-item { margin-bottom: 20px; position: relative; }
+    .timeline-item::before { content: ""; position: absolute; left: -10px; top: 5px; width: 12px; height: 12px; background: #111827; border-radius: 50%; }
+    body.dark .timeline { border-color: #f9fafb; }
+    body.dark .timeline-item::before { background: #f9fafb; }
+
+    footer { text-align: center; padding: 20px; margin-top: 30px; background: #f3f4f6; border-top: 1px solid #d1d5db; }
+    body.dark footer { background: #111827; border-color: #374151; color: #f9fafb; }
+
+    .menu-toggle { display: none; background: #111827; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+    .dark-toggle { background: #111827; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; margin-left: 10px; }
+    body.dark .menu-toggle, body.dark .dark-toggle { background: #f9fafb; color: #111827; }
+
+    @media (max-width: 700px) { nav { display: none; flex-direction: column; width: 100%; margin-top: 10px; } nav.show { display: flex; } .menu-toggle { display: block; } header { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Shreyas Vanage</h1>
+      <p class="header-subtitle">Web Developer | Designer | Tech Enthusiast</p>
+      <p class="header-tagline">Turning ideas into interactive web experiences</p>
+    </div>
+    <div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
+    <nav id="navMenu">
+      <button class="active" onclick="showSection('about', event)">About</button>
+      <button onclick="showSection('skills', event)">Skills</button>
+      <button onclick="showSection('projects', event)">Projects</button>
+      <button onclick="showSection('internships', event)">Internships</button>
+      <button onclick="showSection('education', event)">Education</button>
+      <button onclick="showSection('achievements', event)">Achievements</button>
+      <button onclick="showSection('testimonials', event)">Testimonials</button>
+      <button onclick="showSection('blog', event)">Blog</button>
+      <button onclick="showSection('contact', event)">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section id="about" class="active">
+      <center><img src="My_Pic.jpg" alt="Profile Photo" class="profile-pic"></center>
+      <h2>About Me</h2>
+      <p class="typing">Hi, I'm Shreyas Vanage — Web Developer & Designer</p>
+      <p>I enjoy creating interactive and user-friendly web applications with modern technologies.</p>
+      <a class="resume-btn" href="Shreyas_Vanage_cv_8698041257.pdf" download="Shreyas_Vanage_Resume.pdf">📄 Download Resume</a>
+
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skill"><div class="skill-name">HTML & CSS</div><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
+      <div class="skill"><div class="skill-name">JavaScript</div><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
+      <div class="skill"><div class="skill-name">React.js</div><div class="bar"><div class="bar-fill" style="width:75%"></div></div></div>
+      <div class="skill"><div class="skill-name">Node.js</div><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
+      <div class="skill"><div class="skill-name">SQL & MongoDB</div><div class="bar"><div class="bar-fill" style="width:65%"></div></div></div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card"><h3>Portfolio Website</h3><p>Interactive personal website with animations.</p></div>
+        <div class="card"><h3>Weather App</h3><p>React app fetching live weather data via API.</p></div>
+        <div class="card"><h3>Task Manager</h3><p>To-do list app with local storage & CRUD operations.</p></div>
+      </div>
+    </section>
+
+    <!-- Internships -->
+    <section id="internships">
+      <h2>Internships</h2>
+      <div class="timeline">
+        <div class="timeline-item"><h3>Web Dev Intern - ABC Tech</h3><p>2023 - Worked on responsive redesign using HTML, CSS, JS.</p></div>
+        <div class="timeline-item"><h3>Frontend Intern - XYZ Solutions</h3><p>2022 - Built dashboards with React.js & REST APIs.</p></div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item"><h3>B.Tech - Computer Science</h3><p>ABC University (2020-2024) — CGPA: 8.5</p></div>
+        <div class="timeline-item"><h3>Higher Secondary</h3><p>XYZ School (2018-2020) — 90%</p></div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <h2>Achievements & Certifications</h2>
+      <div class="grid">
+        <div class="card"><h3>Hackathon Winner</h3><p>1st place in National Hackathon 2023.</p></div>
+        <div class="card"><h3>Google Certificate</h3><p>Completed Google Data Analytics Certification.</p></div>
+        <div class="card"><h3>Coursera</h3><p>Full-Stack Web Development Specialization.</p></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <div class="grid">
+        <div class="card"><p>“Shreyas is a fantastic developer with great problem-solving skills.”</p><strong>- Jane Smith, Manager</strong></div>
+        <div class="card"><p>“Highly creative and dependable, delivered our project on time.”</p><strong>- Mark Lee, Client</strong></div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+      <h2>Blog / Articles</h2>
+      <div class="grid">
+        <div class="card"><h3>Getting Started with React</h3><p>Beginner’s guide to building your first React app.</p></div>
+        <div class="card"><h3>10 Tips for Clean Code</h3><p>Best practices to make your code more readable.</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out via:</p>
+      <a href="mailto:youremail@example.com">📧 Email</a>
+      <a href="https://github.com/yourgithub" target="_blank">💻 GitHub</a>
+      <a href="https://linkedin.com/in/yourlinkedin" target="_blank">🔗 LinkedIn</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Shreyas Vanage. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function showSection(id, event) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      const section = document.getElementById(id);
+      section.classList.add('active');
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      if (window.innerWidth <= 700) document.getElementById('navMenu').classList.remove('show');
+      section.scrollIntoView({ behavior: 'smooth' });
+      if (id === 'skills') document.querySelectorAll('.bar-fill').forEach(bar => { bar.style.width = bar.getAttribute('style').split(':')[1]; });
+    }
+    function toggleMenu() { document.getElementById('navMenu').classList.toggle('show'); }
+    function toggleDarkMode() { document.body.classList.toggle('dark'); }
+  </script>
+</body>
+</html>
